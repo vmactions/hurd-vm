@@ -1,10 +1,10 @@
-name: 'DragonflyBSD-vm'
-description: 'Run CI in DragonflyBSD for GitHub Actions'
+name: 'Hurd-vm'
+description: 'Run CI in Hurd for GitHub Actions'
 inputs:
   osname:
     description: 'The OS name'
     required: true
-    default: 'DragonflyBSD'
+    default: 'Hurd'
   prepare:
     description: 'Install some tools before CI runs'
     required: false
@@ -12,13 +12,13 @@ inputs:
     description: 'The CI command to run'
     required: false
   release:
-    description: 'The release version of DragonflyBSD vm'
+    description: 'The release version of Hurd vm'
     required: false
   arch:
-    description: 'The cpu architecture of DragonflyBSD vm'
+    description: 'The cpu architecture of Hurd vm'
     required: false
   envs:
-    description: 'The envs to pass into DragonflyBSD vm'
+    description: 'The envs to pass into Hurd vm'
     required: false
   mem:
     description: 'Set the memory size of the vm'
@@ -28,7 +28,7 @@ inputs:
     description: 'Set the cpu cores of the vm'
     required: false
   nat:
-    description: 'The NAT ports to DragonflyBSD vm'
+    description: 'The NAT ports to Hurd vm'
     required: false
   usesh:
     description: 'Use sh instead of the default shell. Default is false.'
