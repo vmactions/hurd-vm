@@ -96,7 +96,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -240,7 +240,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -392,7 +392,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -549,7 +549,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -688,7 +688,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -808,7 +808,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         mem: 4096
         usesh: true
@@ -869,7 +869,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         mem: 4096
         usesh: true
@@ -931,7 +931,7 @@ jobs:
     - name: Test in Hurd
       id: testerr
       continue-on-error: true
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         usesh: true
         debug: true
@@ -959,7 +959,7 @@ jobs:
     - name: Test in Hurd
       id: testpass
       continue-on-error: true
-      uses: vmactions/hurd-vm@d613ba9d00904cafc7343bc3dc558dc316c66907
+      uses: vmactions/hurd-vm@9aa6ef0918599fec318e28f8f95e92fc90394bea
       with:
         usesh: true
         debug: true
