@@ -100,7 +100,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -248,7 +248,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -404,7 +404,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -565,7 +565,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -708,7 +708,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -828,7 +828,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         mem: 4096
         usesh: true
@@ -889,7 +889,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         mem: 4096
         usesh: true
@@ -951,7 +951,7 @@ jobs:
     - name: Test in Hurd
       id: testerr
       continue-on-error: true
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         usesh: true
         debug: true
@@ -979,7 +979,7 @@ jobs:
     - name: Test in Hurd
       id: testpass
       continue-on-error: true
-      uses: vmactions/hurd-vm@25eac511c144481283794c9315eda08598518bfc
+      uses: vmactions/hurd-vm@5ba13e248b40436c3915f677790f13c15473c0fa
       with:
         usesh: true
         debug: true
