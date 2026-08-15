@@ -64,6 +64,8 @@ jobs:
             arch: s390x
           - release: "2025"
             arch: loongarch64
+          - release: "2025"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -78,6 +80,8 @@ jobs:
             arch: s390x
           - release: ""
             arch: loongarch64
+          - release: ""
+            arch: armv7
 
 
     runs-on: ${{ matrix.runs }}
@@ -90,7 +94,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
 #    - name: Creating Web console
-#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
+#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
 #      uses: vmactions/cf-tunnel@v0
 #      id: tunnel
 #      with:
@@ -98,7 +102,7 @@ jobs:
 #        port: 8000
 
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -133,7 +137,7 @@ jobs:
           echo "OK"
 
     - name: Test NAT
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       env:
         VM_USER: ""
       run: |
@@ -142,7 +146,7 @@ jobs:
         [ "$TEST_ENV" = "abc" ]
         ssh -v -p 20022 ${VM_USER:-root}@localhost  "uname -a;whoami;pwd"
     - name: Test custom shell
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       shell: hurd {0}
       run: |
         pwd
@@ -221,6 +225,8 @@ jobs:
             arch: s390x
           - release: "2025"
             arch: loongarch64
+          - release: "2025"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -235,6 +241,8 @@ jobs:
             arch: s390x
           - release: ""
             arch: loongarch64
+          - release: ""
+            arch: armv7
 
 
     runs-on: ${{ matrix.runs }}
@@ -247,7 +255,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -282,7 +290,7 @@ jobs:
           echo "OK"
 
     - name: Test NAT
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       env:
         VM_USER: ""
       run: |
@@ -294,7 +302,7 @@ jobs:
         [ "$TEST_ENV" = "abc" ]
         ssh -v -p 20022 ${VM_USER:-root}@localhost "uname -a;whoami;pwd"
     - name: Test custom shell
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       shell: hurd {0}
       run: |
         pwd
@@ -371,6 +379,8 @@ jobs:
             arch: s390x
           - release: "2025"
             arch: loongarch64
+          - release: "2025"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -385,6 +395,8 @@ jobs:
             arch: s390x
           - release: ""
             arch: loongarch64
+          - release: ""
+            arch: armv7
 
 
     runs-on: ${{ matrix.runs }}
@@ -397,14 +409,14 @@ jobs:
     steps:
     - uses: actions/checkout@v7
 #    - name: Creating Web console
-#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
+#      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
 #      uses: vmactions/cf-tunnel@v0
 #      id: tunnel
 #      with:
 #        protocol: http
 #        port: 8000
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -441,7 +453,7 @@ jobs:
           echo "OK"
 
     - name: Test files
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       env:
         VM_USER: ""
       run: |
@@ -457,17 +469,17 @@ jobs:
     # get no GITHUB_WORKSPACE (SendEnv excluded), so the custom shell does not
     # run in the synced work tree.
     - name: Prepare custom shell sync test file on host
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
       run: |
         echo "host-data" > hostfile.txt
     - name: Test custom shell file sync
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
       shell: hurd {0}
       run: |
         [ "$(cat hostfile.txt)" = "host-data" ]
         echo "vm-data" > vmfile.txt
     - name: Verify custom shell copyback on host
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') && !contains(github.repository, 'haiku') && !contains(github.repository, 'blissos') }}
       run: |
         set -e
         [ "$(cat vmfile.txt)" = "vm-data" ]
@@ -517,7 +529,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Test in Hurd
-      if: ${{ contains('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}', 'tar') }}
+      if: ${{ contains('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -527,7 +539,7 @@ jobs:
         run: |
 
     - name: Verify tar copyback on host
-      if: ${{ contains('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}', 'tar') }}
+      if: ${{ contains('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}', 'tar') }}
       run: |
         set -e
         ls -lah "$HOME/work"
@@ -600,6 +612,8 @@ jobs:
             arch: s390x
           - release: "2025"
             arch: loongarch64
+          - release: "2025"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -614,6 +628,8 @@ jobs:
             arch: s390x
           - release: ""
             arch: loongarch64
+          - release: ""
+            arch: armv7
 
 
 
@@ -626,7 +642,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -654,7 +670,7 @@ jobs:
           uname -a
           echo "OK"
     - name: Test NAT
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       env:
         VM_USER: ""
       run: |
@@ -664,7 +680,7 @@ jobs:
         ssh -v  -p 20022 ${VM_USER:-root}@localhost  "uname -a;whoami;pwd"
 
     - name: Test custom shell
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       shell: hurd {0}
       run: |
         pwd
@@ -744,6 +760,8 @@ jobs:
             arch: s390x
           - release: "2025"
             arch: loongarch64
+          - release: "2025"
+            arch: armv7
           - release: ""
             arch: aarch64
           - release: ""
@@ -758,6 +776,8 @@ jobs:
             arch: s390x
           - release: ""
             arch: loongarch64
+          - release: ""
+            arch: armv7
 
 
 
@@ -770,7 +790,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -798,7 +818,7 @@ jobs:
           uname -a
           echo "OK"
     - name: Test NAT
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       env:
         VM_USER: ""
       run: |
@@ -808,7 +828,7 @@ jobs:
         ssh -v  -p 20022 ${VM_USER:-root}@localhost  "uname -a;whoami;pwd"
 
     - name: Test custom shell
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       shell: vmsh {0}
       run: |
         pwd
@@ -824,17 +844,17 @@ jobs:
     # its guest gets no GITHUB_WORKSPACE (SendEnv excluded), so the custom
     # shell does not run in the synced work tree.
     - name: Prepare custom shell sync test file on host
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
       run: |
         echo "host-data" > hostfile.txt
     - name: Test custom shell file sync
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
       shell: vmsh {0}
       run: |
         [ "$(cat hostfile.txt)" = "host-data" ]
         echo "vm-data" > vmfile.txt
     - name: Verify custom shell copyback on host
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') && !contains(github.repository, 'haiku') }}
       run: |
         set -e
         [ "$(cat vmfile.txt)" = "vm-data" ]
@@ -889,7 +909,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')['x86_64'], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -949,7 +969,7 @@ jobs:
     # The inputs (notably 'prepare' and the sync method) must be byte-identical
     # to the seed job above: the prepared-image cache key hashes them.
     - name: Test in Hurd
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')['x86_64'], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
       uses: vmactions/hurd-vm@f1a2aed7397e51cbccf8e6acab8e898db2d3ff73
       with:
@@ -975,7 +995,7 @@ jobs:
     # hit-path regression or cross-run cache churn from another ref -- both
     # worth a red job.
     - name: Verify prepare was skipped
-      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[]}')['x86_64'], 'rsync') }}
+      if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       run: |
         set -e
         echo "cache-after-prepare-hit=${{ steps.test.outputs.cache-after-prepare-hit }}"
