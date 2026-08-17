@@ -1,0 +1,8 @@
+          - release: "2025"
+            arch: ""
+          - release: "2025"
+            arch: "i386"
+          - release: ""
+            arch: ""
+          - release: ""
+            arch: "i386"

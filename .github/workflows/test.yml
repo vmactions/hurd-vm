@@ -96,6 +96,14 @@ jobs:
             arch: loongarch64
           - release: ""
             arch: armv7
+          - release: "2025"
+            arch: ""
+          - release: "2025"
+            arch: "i386"
+          - release: ""
+            arch: ""
+          - release: ""
+            arch: "i386"
 
 
     runs-on: ${{ matrix.runs }}
