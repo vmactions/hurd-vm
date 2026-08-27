@@ -1,6 +1,6 @@
 {
   "name": "vmactions-Hurd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GitHub actions for Hurd",
   "type": "module",
   "main": "index.js",
