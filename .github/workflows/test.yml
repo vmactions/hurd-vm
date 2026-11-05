@@ -111,7 +111,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'sshfs') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -255,7 +255,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'nfs') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -462,7 +462,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'scp') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         envs: 'DEBUG MYTOKEN MYTOKEN2'
         prepare: |
@@ -592,7 +592,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}', 'tar') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -659,7 +659,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}', '9p') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -759,7 +759,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')[matrix.arch == '' && 'x86_64' || matrix.arch], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -850,7 +850,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         prepare: |
           apt-get install -y socat
@@ -948,7 +948,7 @@ jobs:
         sparse-checkout-cone-mode: true
     - name: Test in Hurd
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         arch: ${{ matrix.arch }}
         debug: true
@@ -996,7 +996,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         envs: 'MYTOKEN MYTOKEN2'
         prepare: |
@@ -1113,7 +1113,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -1173,7 +1173,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -1251,7 +1251,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -1310,7 +1310,7 @@ jobs:
     - name: Test in Hurd
       if: ${{ contains(fromJSON('{"x86_64":["rsync","scp","nfs","tar"],"aarch64":[],"riscv64":[],"powerpc64":[],"sparc64":[],"ppc64le":[],"s390x":[],"i386":["rsync","scp","nfs","tar"],"loongarch64":[],"armv7":[]}')['x86_64'], 'rsync') }}
       id: test
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         mem: 4096
         debug: true
@@ -1382,7 +1382,7 @@ jobs:
     - name: Test in Hurd
       id: testerr
       continue-on-error: true
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         debug: true
         # A command that EXISTS and fails, rather than `false` or a made-up
@@ -1428,7 +1428,7 @@ jobs:
     - name: Test in Hurd
       id: testpass
       continue-on-error: true
-      uses: vmactions/hurd-vm@fad507d903e36bbe949c1381e7a55edac983f8da
+      uses: vmactions/hurd-vm@5bfe214b08f54108e7897482d4e61658f37dc1c3
       with:
         debug: true
         # No `true` and no double quotes: this body runs on every guest, and
